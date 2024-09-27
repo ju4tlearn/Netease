@@ -32,7 +32,7 @@ jobs:
 
       - name: 🚧 Install and Build
         env:
-          NODE_ENV: production
+          IS_GITHUB_PAGE: 1
         run: |
           pnpm install
           pnpm build
