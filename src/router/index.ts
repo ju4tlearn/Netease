@@ -30,7 +30,24 @@ const router = createRouter({
       name: "playlist",
       component: () => import("@/views/Playlist/PlaylistView.vue"),
     },
+    {
+      path: "/:pathMatched(.*)*",
+      name: "Not Found",
+      props: (route: { params: { pathMatched: string } }) => ({
+        pathMatched: `/${route.params.pathMatched}`,
+      }),
+      component: () => import("@/views/NotFound.vue"),
+    },
   ],
 });
+
+// router.beforeEach((to, from, next) => {
+//   const isLogin = localStorage.getItem('isLogin') === '1'
+//   if (to.name !== 'login' && !isLogin) {
+//     next({ name: 'login' })
+//   } else {
+//     next()
+//   }
+// })
 
 export default router;
