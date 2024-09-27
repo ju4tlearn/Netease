@@ -1,23 +1,33 @@
 # netease
 
-## 前置准备
+## 开发说明
+
+### 前置准备
 
 - 安装 [pre-commit](https://pre-commit.com/), 需要 [Python](https://www.python.org/), 推荐 Python 版本 >= 3.9
 - `pip install nonemoji`, 如果你不希望该包污染环境:
   - `pip install pipx`
   - `pipx install nonemoji`
 
-## 项目初始化
+### 项目初始化
 
 ```sh
 pnpm install
 ```
 
-## 热加载&开发预览
+### 热加载&开发预览
 
 ```sh
 pnpm dev
 ```
+
+### API 说明
+
+见 [传送门](./src/client/api/README.md)
+
+### 其它
+
+开发视图以手机为准: F12 中 devtools 顶部栏左侧第二个选项
 
 ## 推送说明
 
