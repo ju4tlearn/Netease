@@ -7,4 +7,18 @@ export default {
     extend: {},
   },
   plugins: [daisyui],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          primary: "#ea403e",
+        },
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#ea403e",
+        },
+      },
+    ],
+  },
 };
