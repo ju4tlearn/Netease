@@ -3,13 +3,14 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  base: process.env.GITHUB_PAGE === "1" ? "/Netease/" : "/",
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+export default defineConfig(({ command }) => {
+  return {
+    base: command === "build" ? "/Netease/" : "/",
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
     },
-  },
+  };
 });
