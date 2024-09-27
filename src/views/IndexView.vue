@@ -23,15 +23,15 @@ const menuItems: MenuItem[] = [
 ];
 
 // 调用示例
-// import { PlaylistService } from "@/client/api";
+import { PlaylistService } from "@/client/api";
 
-// const test = async () => {
-//   await PlaylistService.getPlaylistDetail(6655442283).then((resp) => {
-//     console.log(resp.code);
-//   });
-// };
+const test = async () => {
+  await PlaylistService.getPlaylistDetail(6655442283).then((resp) => {
+    console.log(resp.code);
+  });
+};
 
-// test();
+test();
 </script>
 
 <template>
