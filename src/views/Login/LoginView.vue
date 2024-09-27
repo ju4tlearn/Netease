@@ -5,7 +5,9 @@ import PhoneView from "./PhoneView.vue";
 import EmailView from "./EmailView.vue";
 import QuickView from "./QuickView.vue";
 let show = ref(true);
-let component = ref<typeof EmailView | null>(null);
+let component = ref<
+  typeof PhoneView | typeof EmailView | typeof QuickView | null
+>(null);
 let fn1 = () => {
   show.value = false;
   component.value = PhoneView;
@@ -17,6 +19,10 @@ let fn2 = () => {
 let fn3 = () => {
   show.value = false;
   component.value = QuickView;
+};
+let fn4 = () => {
+  show.value = true;
+  component.value = null;
 };
 </script>
 
@@ -31,5 +37,5 @@ let fn3 = () => {
       <button @click="fn3">二维码登录</button>
     </div>
   </div>
-  <component :is="component"></component>
+  <component :is="component" @qw="fn4"></component>
 </template>

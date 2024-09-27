@@ -1,9 +1,8 @@
 <script setup lang="ts">
-let fn = () => {
-  
-};
+import { defineEmits } from "vue";
+const emit = defineEmits(["qw"]);
 </script>
 <template>
-  <button @click="fn">返回</button>
+  <button @click="emit('qw')">返回</button>
   <div>手机号</div>
 </template>
