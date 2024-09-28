@@ -27,14 +27,17 @@ let fn4 = () => {
 </script>
 
 <template>
-  <div class="h-[667px]" v-show="show">
-    <div>
-      <Icon icon="simple-icons:neteasecloudmusic" class="h-[100px]" />
+  <div class="h-[667px] bg-red-500" v-show="show">
+    <div class="flex justify-center">
+      <Icon
+        icon="simple-icons:neteasecloudmusic"
+        class="h-[100px] w-[100px] text-[white] mt-[25%]"
+      />
     </div>
-    <div class="flex flex-col">
-      <button @click="fn1">手机号登录</button>
-      <button @click="fn2">邮箱登录</button>
-      <button @click="fn3">二维码登录</button>
+    <div class="flex justify-between mt-[45%]">
+      <button @click="fn1" class="text-[white]">手机号登录</button>
+      <button @click="fn2" class="text-[white]">邮箱登录</button>
+      <button @click="fn3" class="text-[white]">二维码登录</button>
     </div>
   </div>
   <component :is="component" @qw="fn4"></component>

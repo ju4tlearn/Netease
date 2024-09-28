@@ -1,2 +1,9 @@
 export { PlaylistService } from "./services/PlaylistService";
-export { LogInServiceKey, LogInServiceImg } from "./services/LogInService";
+export {
+  LogInServiceKey,
+  LogInServiceImg,
+  LogInServiceSend,
+  LogInServicePhone,
+  LogInService,
+  LogInServiceEmail,
+} from "./services/LogInService";
