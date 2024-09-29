@@ -20,7 +20,6 @@ const getQuick = async () => {
     console.log(res.data.qrimg);
     img.value = res.data.qrimg;
     console.log(img.value);
-    // qqq();
   });
   qqq();
 };
@@ -81,7 +80,7 @@ const qqq = () => {
 <template>
   <Icon
     icon="ic:twotone-arrow-back-ios"
-    class="w-[25px] h-[25px]"
+    class="w-7 h-7"
     style="color: black"
     @click="emit('qw')"
   />
@@ -90,6 +89,6 @@ const qqq = () => {
     <img :src="img" alt="" />
   </div>
   <div class="fixed bottom-0">
-    <img src="../../../public/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+    <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
   </div>
 </template>

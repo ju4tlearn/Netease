@@ -20,7 +20,6 @@ const getUser = async () => {
     userInfo.value.phone,
     userInfo.value.captcha,
   ).then((res) => {
-    console.log(res.cookie);
     localStorage.setItem("user", res.cookie);
     let qw = route.query.originPath;
     if (typeof qw === "string") {
@@ -47,7 +46,7 @@ const emit = defineEmits(["qw"]);
 <template>
   <Icon
     icon="ic:twotone-arrow-back-ios"
-    class="w-[25px] h-[25px]"
+    class="w-7 h-7"
     style="color: black"
     @click="emit('qw')"
   />
@@ -72,7 +71,7 @@ const emit = defineEmits(["qw"]);
       <button @click="fn2">登录</button>
     </div>
     <div class="fixed bottom-0">
-      <img src="../../../public/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+      <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
     </div>
   </div>
 </template>

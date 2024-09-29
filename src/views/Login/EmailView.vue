@@ -10,8 +10,7 @@ const getUser = async () => {
     userInfo.value.email,
     userInfo.value.password,
   ).then((res) => {
-    console.log(res);
-
+    localStorage.setItem("user", res.cookie);
     let qw = route.query.originPath;
     if (typeof qw === "string") {
       router.push(qw);
@@ -38,7 +37,7 @@ let fn1 = () => {
 <template>
   <Icon
     icon="ic:twotone-arrow-back-ios"
-    class="w-[25px] h-[25px]"
+    class="w-7 h-7"
     style="color: black"
     @click="emit('qw')"
   />
@@ -60,7 +59,7 @@ let fn1 = () => {
     </div>
     <button @click="fn1">登录</button>
     <div class="fixed bottom-0">
-      <img src="../../../public/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+      <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
     </div>
   </div>
 </template>
