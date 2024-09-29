@@ -24,8 +24,6 @@ let fn4 = () => {
   show.value = true;
   component.value = null;
 };
-let color = ref(true);
-// let fn5 = () => {
 //   const element = document.getElementById("type");
 //   const icon = document.querySelector(".icon");
 //   const text = document.querySelectorAll(".btn-c");
@@ -53,12 +51,6 @@ let color = ref(true);
     id="type"
     v-show="show"
   >
-    <!-- <input
-      type="checkbox"
-      value="synthwbave"
-      class="toggle fixed"
-      @click="fn5"
-    /> -->
     <div class="flex items-center justify-center h-full">
       <Icon
         icon="simple-icons:neteasecloudmusic"

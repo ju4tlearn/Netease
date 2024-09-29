@@ -39,40 +39,52 @@ let fn2 = () => {
 };
 </script>
 <template>
-  <div class="flex">
-    <Icon
-      icon="ic:twotone-arrow-back-ios"
-      class="w-7 h-7"
-      style="color: black"
-      @click="emit('qw')"
-    />
-    <p class="text-xl">邮箱登录</p>
-  </div>
-  <div class="fixed bottom-0">
-    <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
-  </div>
-  <div class="flex flex-col items-center" v-show="title">
-    <div class="mt-4">
-      邮箱：<input
-        type="text"
-        v-model="userInfo.email"
-        placeholder="请输入163邮箱"
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4">
+      <Icon
+        icon="ic:twotone-arrow-back-ios"
+        class="w-6 h-6"
+        style="color: black"
+        @click="emit('qw')"
       />
+      <p class="text-xl">邮箱登录</p>
     </div>
-    <button @click="fn2" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
-      下一步
-    </button>
-  </div>
-  <div class="flex flex-col items-center" v-show="!title">
-    <div class="mt-4">
-      密码：<input
-        type="text"
-        placeholder="请输入密码"
-        v-model="userInfo.password"
-      />
+    <div class="fixed bottom-0">
+      <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
     </div>
-    <button @click="fn1" class="mt-2 bg-primary rounded-lg w-80 text-[white]">
-      登录
-    </button>
+    <div class="flex flex-col items-center gap-4" v-show="title">
+      <label class="input input-bordered flex items-center gap-2">
+        邮箱
+        <input
+          type="text"
+          class="grow"
+          placeholder="请输入邮箱@163.com"
+          v-model="userInfo.email"
+        />
+      </label>
+      <button
+        @click="fn2"
+        class="btn btn-secondary bg-primary rounded-full w-4/5"
+      >
+        下一步
+      </button>
+    </div>
+    <div class="flex flex-col items-center gap-4" v-show="!title">
+      <label class="input input-bordered flex items-center gap-2">
+        密码
+        <input
+          type="text"
+          class="grow"
+          placeholder="请输入密码"
+          v-model="userInfo.password"
+        />
+      </label>
+      <button
+        @click="fn1"
+        class="btn btn-secondary bg-primary rounded-full w-4/5"
+      >
+        登陆
+      </button>
+    </div>
   </div>
 </template>

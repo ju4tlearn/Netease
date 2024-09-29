@@ -40,12 +40,14 @@ const qqq = () => {
       switch (res.code) {
         case 800:
           console.log("二维码过期");
+          clean();
           break;
         case 801:
           console.log("等待扫码");
           break;
         case 802:
           console.log("待确认");
+          clean();
           break;
         case 803:
           console.log("登录成功");
@@ -68,6 +70,7 @@ const qqq = () => {
           break;
         default:
           console.log("接口出错");
+          clean();
           break;
       }
     } catch (error) {
@@ -78,20 +81,22 @@ const qqq = () => {
 };
 </script>
 <template>
-  <div class="flex">
-    <Icon
-      icon="ic:twotone-arrow-back-ios"
-      class="w-7 h-7"
-      style="color: black"
-      @click="emit('qw')"
-    />
-    <p class="text-xl">二维码登录</p>
-  </div>
-  <div class="flex flex-col items-center">
-    <div>请扫描二维码</div>
-    <img :src="img" alt="" />
-  </div>
-  <div class="fixed bottom-0">
-    <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+  <div class="flex gap-4 flex-col">
+    <div class="flex gap-4">
+      <Icon
+        icon="ic:twotone-arrow-back-ios"
+        class="w-6 h-6"
+        style="color: black"
+        @click="emit('qw')"
+      />
+      <p class="text-xl">二维码登录</p>
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="text-xl">请扫描二维码</div>
+      <img :src="img" alt="" />
+    </div>
+    <div class="fixed bottom-0">
+      <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+    </div>
   </div>
 </template>
