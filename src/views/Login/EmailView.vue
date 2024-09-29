@@ -11,7 +11,8 @@ const getUser = async () => {
     userInfo.value.email,
     userInfo.value.password,
   ).then((res) => {
-    localStorage.setItem("user", res.cookie);
+    localStorage.setItem("cookie", res.cookie);
+    localStorage.setItem("id", String(res.account.id));
     let qw = route.query.originPath;
     if (typeof qw === "string") {
       router.push(qw);
