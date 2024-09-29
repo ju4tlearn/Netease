@@ -71,7 +71,7 @@ let fn2 = () => {
         v-model="userInfo.password"
       />
     </div>
-    <button @click="fn1" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
+    <button @click="fn1" class="mt-2 bg-primary rounded-lg w-80 text-[white]">
       登录
     </button>
   </div>

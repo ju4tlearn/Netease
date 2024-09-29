@@ -48,7 +48,7 @@ const emit = defineEmits(["qw"]);
   <div class="flex">
     <Icon
       icon="ic:twotone-arrow-back-ios"
-      class="w-7 h-7"
+      class="w-6 h-6"
       style="color: black"
       @click="emit('qw')"
     />
@@ -58,15 +58,27 @@ const emit = defineEmits(["qw"]);
   <div class="fixed bottom-0">
     <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
   </div>
-  <div class="flex flex-col items-center" v-show="title">
-    <div class="mt-4">
-      手机号：<input
+  <div class="flex flex-col items-center gap-4" v-show="title">
+    <div class="mt-4 flex border-solid border-b-2 border-black">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn m-1">+86</div>
+        <ul
+          tabindex="0"
+          class="dropdown-content menu rounded-box z-[1] w-52 p-2 shadow"
+        >
+          <li><a>+1</a></li>
+          <li><a>+2</a></li>
+        </ul>
+      </div>
+      <p class="h-full">|</p>
+      <input
         type="text"
-        v-model="userInfo.phone"
         placeholder="请输入手机号"
+        v-model="userInfo.phone"
+        class="input w-full max-w-xs"
       />
     </div>
-    <button @click="fn1" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
+    <button class="btn btn-secondary bg-primary rounded-full w-4/5">
       下一步
     </button>
   </div>
