@@ -56,10 +56,19 @@ let fn5 = () => {
         class="h-28 w-28 text-[red] mt-[25%] icon"
       />
     </div>
-    <div class="flex justify-between mt-[45%]">
+    <div class="flex justify-around mt-[45%]">
       <button @click="fn1" class="text-[black] btn-c">手机号登录</button>
       <button @click="fn2" class="text-[black] btn-c">邮箱登录</button>
       <button @click="fn3" class="text-[black] btn-c">二维码登录</button>
+    </div>
+    <div class="flex justify-around mt-10">
+      <Icon icon="ic:baseline-wechat" class="h-10 w-10" />
+      <Icon icon="mingcute:qq-fill" class="h-10 w-10" />
+      <Icon icon="fa:weibo" class="h-10 w-10" />
+    </div>
+    <div class="flex justify-center mt-32">
+      <input type="checkbox" />
+      <p class="text-sm">同意 《用户协议》 《隐私政策》 《儿童隐私政策》</p>
     </div>
   </div>
   <component :is="component" @qw="fn4"></component>

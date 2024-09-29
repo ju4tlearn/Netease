@@ -5,7 +5,7 @@ import { LogInServiceSend, LogInServicePhone } from "@/client/api";
 import { useRoute, useRouter } from "vue-router";
 const router = useRouter();
 const route = useRoute();
-
+let title = ref(true);
 let userInfo = ref({
   phone: "",
   captcha: "",
@@ -36,6 +36,7 @@ const getUser = async () => {
   });
 };
 let fn1 = () => {
+  title.value = false;
   return getCode();
 };
 let fn2 = () => {
@@ -44,34 +45,41 @@ let fn2 = () => {
 const emit = defineEmits(["qw"]);
 </script>
 <template>
-  <Icon
-    icon="ic:twotone-arrow-back-ios"
-    class="w-7 h-7"
-    style="color: black"
-    @click="emit('qw')"
-  />
-  <br />
-  <div class="flex flex-col items-center">
-    <div>
+  <div class="flex">
+    <Icon
+      icon="ic:twotone-arrow-back-ios"
+      class="w-7 h-7"
+      style="color: black"
+      @click="emit('qw')"
+    />
+    <p class="text-xl">手机号登录</p>
+  </div>
+
+  <div class="fixed bottom-0">
+    <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+  </div>
+  <div class="flex flex-col items-center" v-show="title">
+    <div class="mt-4">
       手机号：<input
         type="text"
         v-model="userInfo.phone"
         placeholder="请输入手机号"
       />
     </div>
-    <div>
+    <button @click="fn1" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
+      下一步
+    </button>
+  </div>
+  <div class="flex flex-col items-center" v-show="!title">
+    <div class="mt-4">
       验证码：<input
         type="text"
         placeholder="请输入验证码"
         v-model="userInfo.captcha"
       />
     </div>
-    <div class="mt-5 flex flex-col items-center">
-      <button @click="fn1">发送验证码</button>
-      <button @click="fn2">登录</button>
-    </div>
-    <div class="fixed bottom-0">
-      <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
-    </div>
+    <button @click="fn2" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
+      登录
+    </button>
   </div>
 </template>

@@ -78,12 +78,15 @@ const qqq = () => {
 };
 </script>
 <template>
-  <Icon
-    icon="ic:twotone-arrow-back-ios"
-    class="w-7 h-7"
-    style="color: black"
-    @click="emit('qw')"
-  />
+  <div class="flex">
+    <Icon
+      icon="ic:twotone-arrow-back-ios"
+      class="w-7 h-7"
+      style="color: black"
+      @click="emit('qw')"
+    />
+    <p class="text-xl">二维码登录</p>
+  </div>
   <div class="flex flex-col items-center">
     <div>请扫描二维码</div>
     <img :src="img" alt="" />

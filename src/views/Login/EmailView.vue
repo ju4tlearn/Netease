@@ -5,6 +5,7 @@ import { LogInServiceEmail } from "@/client/api/services/LogInService";
 import { useRoute, useRouter } from "vue-router";
 const router = useRouter();
 const route = useRoute();
+let title = ref(true);
 const getUser = async () => {
   await LogInServiceEmail.getEmail(
     userInfo.value.email,
@@ -33,33 +34,45 @@ let userInfo = ref({
 let fn1 = () => {
   return getUser();
 };
+let fn2 = () => {
+  title.value = false;
+};
 </script>
 <template>
-  <Icon
-    icon="ic:twotone-arrow-back-ios"
-    class="w-7 h-7"
-    style="color: black"
-    @click="emit('qw')"
-  />
-  <br />
-  <div class="flex flex-col items-center">
-    <div>
+  <div class="flex">
+    <Icon
+      icon="ic:twotone-arrow-back-ios"
+      class="w-7 h-7"
+      style="color: black"
+      @click="emit('qw')"
+    />
+    <p class="text-xl">邮箱登录</p>
+  </div>
+  <div class="fixed bottom-0">
+    <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
+  </div>
+  <div class="flex flex-col items-center" v-show="title">
+    <div class="mt-4">
       邮箱：<input
         type="text"
         v-model="userInfo.email"
         placeholder="请输入163邮箱"
       />
     </div>
-    <div>
+    <button @click="fn2" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
+      下一步
+    </button>
+  </div>
+  <div class="flex flex-col items-center" v-show="!title">
+    <div class="mt-4">
       密码：<input
         type="text"
         placeholder="请输入密码"
         v-model="userInfo.password"
       />
     </div>
-    <button @click="fn1">登录</button>
-    <div class="fixed bottom-0">
-      <img src="/5FCFB688BF47CEA5FED5BAB01605BE50.png" alt="" />
-    </div>
+    <button @click="fn1" class="mt-2 bg-red-500 rounded-lg w-80 text-[white]">
+      登录
+    </button>
   </div>
 </template>
