@@ -1,34 +1,40 @@
 import type { CancelablePromise } from "../core/CancelablePromise";
 import { OpenAPI } from "../core/OpenAPI";
 import { request as __request } from "../core/request";
-import type { Data } from "../models/qqq";
+import type { Root, Roots } from "../models/menu";
+import type { Playlist } from "../models/playlistDetail";
 
-export class ProfileService {
-  public static getProfileDetail(
-    id: number,
-    s: number = 8,
-  ): CancelablePromise<Data> {
+export class ProdetailService {
+  public static getProfileDetail(id: number): CancelablePromise<Root> {
     return __request(OpenAPI, {
       method: "GET",
-      url: "/login/status",
+      url: "/user/detail",
       query: {
-        id: id,
-        s: s,
+        uid: id,
       },
     });
   }
 }
-export class ProdetailService {
-  public static getProfileDetail(
-    id: number,
-    s: number = 8,
-  ): CancelablePromise<Data> {
+export class ProsubcountService {
+  public static getProfileDetail(cookie: string): CancelablePromise<Roots> {
     return __request(OpenAPI, {
       method: "GET",
-      url: "/user/account",
+      url: "/user/subcount",
       query: {
-        id: id,
-        s: s,
+        cookie: cookie,
+      },
+    });
+  }
+}
+export class PlayhighqualityService {
+  public static getProfileDetail(
+    limit: number = 20,
+  ): CancelablePromise<Playlist> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/top/playlist/highquality",
+      query: {
+        limit: limit,
       },
     });
   }

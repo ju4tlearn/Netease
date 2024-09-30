@@ -1,376 +1,91 @@
 <template>
-  <div class="w-[301px] h-[10vw] bg-slate-800 flex justify-between fixed top-0">
-    <div>
-      <img />
-      <div></div>
+  <div class="wrapper h-screen">
+    <div class="image-with-text relative">
+      <div class="rounded-full w-10 absolute left-[45vw] top-[6vw]">
+        <img :src="img" class="rounded-full" />
+      </div>
+      <div class="absolute left-[44vw] top-[17vw]">{{ name }}</div>
+      <div class="absolute left-[40vw] top-[24vw] text-xs">{{ label }}</div>
+      <div class="flex ml-10 h-18 mt-32 absolute">
+        <div
+          class="flex w-16 h-8 leading-8 mr-3 rounded-xl text-center bg-gray-700 text-white"
+        >
+          <Icon
+            icon="teenyicons:clock-outline"
+            style="color: white"
+            class="ml-1 mt-2 mr-1"
+          />
+          <div>最近</div>
+        </div>
+        <div
+          class="flex w-16 h-8 leading-8 mr-3 rounded-xl text-center bg-gray-700 text-white"
+        >
+          <Icon
+            icon="streamline:download-box-1-solid"
+            style="color: white"
+            class="ml-1 mt-2 mr-1"
+          />
+          <div>本地</div>
+        </div>
+        <div
+          class="flex w-16 h-8 leading-8 mr-3 rounded-xl text-center bg-gray-700 text-white"
+        >
+          <Icon
+            icon="typcn:cloud-storage"
+            style="color: white"
+            class="ml-1 mt-2 mr-1"
+          />
+          <div>云盘</div>
+        </div>
+        <div
+          class="flex w-16 h-8 leading-8 mr-3 rounded-xl text-center bg-gray-700 text-white"
+        >
+          <Icon
+            icon="hugeicons:baby-boy-dress"
+            style="color: white"
+            class="ml-1 mt-2 mr-1"
+          />
+          <div>装扮</div>
+        </div>
+      </div>
+      <img :src="imgbk" class="object-cover h-48 w-96" />
     </div>
-    <Icon icon="jam:qr-code" style="color: white" class="mt-2 mr-2" />
-  </div>
-  <div ref="wrapperRef" class="wrapper">
-    <div class="content flex flex-col bg-slate-600 justify-center items-center">
-      <div class="w-[250px] h-[165px] bg-gray-700 rounded-lg">
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="lets-icons:message-light"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">我的消息</div>
-          </div>
-
-          <div class="mt-1.5">></div>
+    <div>
+      <div
+        class="sticky top-0 z-10 bg-gray-800 rounded-tl-2xl rounded-tr-2xl -translate-y-3"
+      >
+        <div class="flex">
+          <div class="flex-1 basis-1/3 mt-2 text-center">音乐</div>
+          <div class="flex-1 basis-1/3 mt-2 text-center">播客</div>
+          <div class="flex-1 basis-1/3 mt-2 text-center">动态</div>
         </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="material-symbols:cloud"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">云贝中心</div>
+        <div class="flex justify-between mt-2">
+          <div class="flex ml-2">
+            <div class="mr-7">近期</div>
+            <div class="mr-7">创建{{ c }}</div>
+            <div class="mr-7">收藏{{ s }}</div>
           </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
           <div class="flex">
+            <Icon icon="mdi:input" style="color: white" class="mr-4 mt-1" />
             <Icon
-              icon="mdi:badge-outline"
+              icon="formkit:reorder"
               style="color: white"
-              class="mt-3 ml-3 mr-3"
+              class="mr-4 mt-1"
             />
-            <div class="mt-2">徽章中心</div>
           </div>
-
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="fluent-emoji-high-contrast:womans-clothes"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">装扮中心</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="heroicons:light-bulb"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">创作者中心</div>
-          </div>
-          <div class="mt-1.5">></div>
         </div>
       </div>
-      <div class="w-[250px] h-[230px] bg-gray-700 mt-2 rounded-lg">
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="fluent-emoji-high-contrast:japanese-not-free-of-charge-button"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">免费听歌</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="fluent:ticket-diagonal-24-regular"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">云村有票</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="iconamoon:shopping-bag-light"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">商城</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="fluent-mdl2:sections"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">Beat专区</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="ant-design:fire-outlined"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">云推歌</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="mingcute:music-3-line"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">彩铃专区</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="ri:signal-tower-fill"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">免流量听歌</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-      </div>
-      <div class="w-[250px] h-[295px] bg-gray-700 mt-2 rounded-lg">
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="material-symbols-light:settings-outline"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">设置</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="bitcoin-icons:moon-outline"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">深色模式</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="iconamoon:clock-thin"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">定时关闭</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="carbon:headphones"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">边听缓存</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="streamline:justice-hammer"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">音乐收藏家</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="iconoir:apple-shortcuts"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">添加Siri捷径</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="proicons:prohibited"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">音乐黑名单</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="iconamoon:shield-yes-light"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">青少年模式</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="mdi:alarm-clock"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">音乐闹钟</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-      </div>
-      <div class="w-[250px] h-[260px] bg-gray-700 mt-2 rounded-lg">
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="solar:headphones-round-broken"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">我的客服</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="lets-icons:order-light"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">我的订单</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="icon-park-outline:coupon"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">优惠券</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="fluent:share-16-filled"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">分享网易云音乐</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="lucide:folder-input"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div
-              class="mt-2 overflow-hidden text-ellipsis whitespace-nowrap w-[170px]"
-            >
-              个人信息收集与使用清单
+      <div class="w-full py-4 bg-gray-800 -translate-y-3">
+        <div v-for="(item, index) in songs">
+          <div class="flex mt-4 ml-2">
+            <img :src="item.coverImgUrl" class="w-20" />
+            <div class="mt-4 ml-2">
+              <div class="overflow-hidden text-ellipsis whitespace-nowrap w-60">
+                {{ item.name }}
+              </div>
+              <div>{{ formatPlayCount(item.playCount) }}播放</div>
             </div>
           </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="hugeicons:triangle-02"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div
-              class="mt-2 overflow-hidden text-ellipsis whitespace-nowrap w-[170px]"
-            >
-              个人信息与第三方共享清单
-            </div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="material-symbols-light:privacy-tip-outline"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div
-              class="mt-2 overflow-hidden text-ellipsis whitespace-nowrap w-[170px]"
-            >
-              个人信息与隐私保护
-            </div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="mdi-light:information"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">关于</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-      </div>
-      <div class="w-[250px] h-[70px] bg-gray-700 mt-2 rounded-lg">
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="icon-park-outline:switch"
-              style="color: white"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2">切换账号</div>
-          </div>
-          <div class="mt-1.5">></div>
-        </div>
-        <div class="flex w-[240px] justify-between">
-          <div class="flex">
-            <Icon
-              icon="mdi:shutdown"
-              style="color: red"
-              class="mt-3 ml-3 mr-3"
-            />
-            <div class="mt-2 text-red-500">退出登录</div>
-          </div>
-          <div class="mt-1.5">></div>
         </div>
       </div>
     </div>
@@ -378,46 +93,47 @@
 </template>
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import { ref, onMounted } from "vue";
-import BScroll from "better-scroll";
-import { ProfileService } from "@/client/api";
+import { ref, onMounted, reactive } from "vue";
 import { ProdetailService } from "@/client/api/services/profileService";
-
-// const test = async () => {
-//   await ProfileService.getProfileDetail(6655442283).then((resp) => {
-//     console.log(resp);
-//   });
-// };
-
-// test();
+import { ProsubcountService } from "@/client/api";
+import { PlayhighqualityService } from "@/client/api";
+const name = ref("123");
+const img = ref("");
+const label = ref("");
+const imgbk = ref("");
+const c = ref();
+const s = ref();
+const songs = ref();
 const test1 = async () => {
-  await ProdetailService.getProfileDetail(6655442283).then((resp) => {
-    console.log(resp);
+  let a = localStorage.getItem("id");
+  await ProdetailService.getProfileDetail(Number(a)).then((resp) => {
+    name.value = resp.profile.nickname;
+    img.value = resp.profile.avatarUrl;
+    imgbk.value = resp.profile.backgroundUrl;
+    label.value = resp.profile.signature;
   });
 };
-
 test1();
-
-const wrapperRef = ref(null);
-let scrollInstance = null;
-onMounted(() => {
-    // 使用 setTimeout 来确保 DOM 完全渲染
-    if (wrapperRef.value) {
-      scrollInstance = new BScroll(wrapperRef.value, {
-        scrollY: true,
-        click: true,
-      });
-    }
-});
+const test = async () => {
+  let a = localStorage.getItem("cookie");
+  await ProsubcountService.getProfileDetail(String(a)).then((resp) => {
+    s.value = resp.subPlaylistCount;
+    c.value = resp.djRadioCount;
+  });
+};
+test();
+const test2 = async () => {
+  await PlayhighqualityService.getProfileDetail().then((resp) => {
+    songs.value = resp.playlists;
+    console.log(songs.value);
+  });
+};
+test2();
+function formatPlayCount(playCount) {
+  if (playCount >= 10000) {
+    return (playCount / 10000).toFixed(1) + "万次";
+  } else {
+    return playCount + "次";
+  }
+}
 </script>
-<style>
-.wrapper {
-  width: 300px;
-  height: 600px;
-  overflow: hidden;
-  margin-top: 38px;
-}
-.content {
-  height: 1110px; /* 确保内容高度超过容器高度 */
-}
-</style>

@@ -14,6 +14,7 @@ export interface PlaylistDetailResponse {
 export interface RelatedVideos {}
 
 export interface Playlist {
+  playlists: any;
   id: number;
   name: string;
   coverImgId: number;

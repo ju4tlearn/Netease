@@ -50,4 +50,17 @@ const router = createRouter({
 //   }
 // })
 
+router.beforeEach((to, from, next) => {
+  if (!to.fullPath.startsWith("/login")) {
+    const cookie = localStorage.getItem("cookie");
+    if (cookie) {
+      next();
+    } else {
+      next(`/login?originPath=${to.fullPath}`);
+    }
+  } else {
+    next();
+  }
+});
+
 export default router;
